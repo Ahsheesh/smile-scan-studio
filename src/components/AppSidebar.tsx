@@ -1,15 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { mockUser } from "@/data/mockData";
+import { LayoutDashboard, BarChart3, User, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
-  { icon: "dashboard", label: "Dashboard", page: "dashboard" },
-  { icon: "analytics", label: "Analysis", page: "analysis" },
-  { icon: "auto_fix_high", label: "Simulation", page: "simulation" },
-  { icon: "history", label: "History", page: "history" },
-];
-
-const bottomItems = [
-  { icon: "settings", label: "Preferences" },
+  { icon: LayoutDashboard, label: "Dashboard", page: "dashboard" },
+  { icon: BarChart3, label: "Analytics", page: "analysis" },
+  { icon: User, label: "Profile", page: "profile" },
 ];
 
 interface AppSidebarProps {
@@ -20,66 +16,73 @@ interface AppSidebarProps {
 
 const AppSidebar = ({ activePage, open, onClose }: AppSidebarProps) => {
   const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const handleNav = (page: string) => {
     if (page === "dashboard") navigate("/dashboard");
     else if (page === "analysis") navigate("/analysis/scan-001");
-    // TODO: other pages
+    // TODO: profile page
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
+
+  const displayName = user?.user_metadata?.full_name || user?.email?.split("@")[0] || "User";
+  const displayEmail = user?.email || "";
+
   const content = (
-    <div className="w-64 h-full bg-sidebar-dark border-r-2 border-black flex flex-col p-6 gap-8">
+    <div className="w-[220px] h-full bg-sidebar-dark flex flex-col py-6 px-4">
       {/* Logo */}
-      <div className="flex items-center gap-3">
-        <div className="size-8 bg-black flex items-center justify-center">
+      <div className="flex items-center gap-2.5 px-2 mb-8">
+        <div className="size-8 bg-primary rounded-lg flex items-center justify-center">
           <span className="material-symbols-outlined text-white text-base">flare</span>
         </div>
-        <span className="text-ivory text-xl font-black uppercase tracking-tighter">DENTAL VISION</span>
+        <span className="text-ivory text-base font-black tracking-tight">Dental Vision</span>
       </div>
 
       {/* Nav */}
-      <div className="flex flex-col gap-2">
-        {navItems.map((item) => (
-          <button
-            key={item.label}
-            onClick={() => handleNav(item.page)}
-            className={`flex items-center gap-3 px-3 py-2 font-bold text-sm text-ivory rounded-lg transition-colors ${
-              item.page === activePage ? "bg-black text-white" : "hover:bg-black/10"
-            }`}
-          >
-            <span className="material-symbols-outlined text-lg">{item.icon}</span>
-            {item.label}
-          </button>
-        ))}
-      </div>
+      <nav className="flex flex-col gap-1 flex-1">
+        {navItems.map((item) => {
+          const isActive = item.page === activePage || (item.page === "analysis" && activePage === "analysis");
+          return (
+            <button
+              key={item.label}
+              onClick={() => handleNav(item.page)}
+              className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 ${
+                isActive
+                  ? "bg-primary/15 text-primary border-l-[3px] border-primary pl-[9px]"
+                  : "text-slate-400 hover:text-ivory hover:bg-white/5"
+              }`}
+            >
+              <item.icon size={18} strokeWidth={isActive ? 2.5 : 2} />
+              {item.label}
+            </button>
+          );
+        })}
+      </nav>
 
-      <div className="flex flex-col gap-2 mt-auto">
-        {bottomItems.map((item) => (
-          <button key={item.label} className="flex items-center gap-3 px-3 py-2 font-bold text-sm text-ivory hover:bg-black/10 rounded-lg transition-colors">
-            <span className="material-symbols-outlined text-lg">{item.icon}</span>
-            {item.label}
-          </button>
-        ))}
-        <button
-          onClick={() => navigate("/")}
-          className="flex items-center gap-3 px-3 py-2 font-bold text-sm text-ivory hover:bg-black/10 rounded-lg transition-colors"
-        >
-          <span className="material-symbols-outlined text-lg">logout</span>
-          Log out
-        </button>
-      </div>
-
-      {/* TODO: Replace with authenticated user data */}
-      <div className="flex items-center gap-3 p-3 bg-white/10 border border-black/10 rounded-xl">
-        <img
-          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100"
-          alt=""
-          className="size-10 rounded-full object-cover"
-        />
-        <div className="min-w-0">
-          <p className="text-xs font-bold text-ivory truncate">{mockUser.name}</p>
-          <p className="text-[10px] opacity-60 text-ivory">{mockUser.email}</p>
+      {/* User + Sign Out */}
+      <div className="mt-auto pt-4 border-t border-white/5">
+        {/* User info */}
+        <div className="flex items-center gap-3 px-2 mb-3">
+          <div className="size-9 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
+            <User size={16} />
+          </div>
+          <div className="min-w-0">
+            <p className="text-xs font-bold text-ivory truncate">{displayName}</p>
+            <p className="text-[10px] text-slate-500 truncate">{displayEmail}</p>
+          </div>
         </div>
+
+        <button
+          onClick={handleSignOut}
+          className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-400 hover:text-red-400 hover:bg-red-400/5 rounded-xl transition-all duration-200 w-full"
+        >
+          <LogOut size={18} />
+          Sign Out
+        </button>
       </div>
     </div>
   );
