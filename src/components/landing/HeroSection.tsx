@@ -4,7 +4,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onAuthOpen }: HeroSectionProps) => {
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-12 py-20 md:py-32">
+    <section className="max-w-[1380px] mx-auto px-4 md:px-12 py-20 md:py-32">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left column */}
         <div>
@@ -26,9 +26,6 @@ const HeroSection = ({ onAuthOpen }: HeroSectionProps) => {
               className="rounded-full h-14 px-8 bg-primary text-white text-base font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform min-w-[180px] inline-flex items-center justify-center"
             >
               Start Visualizing
-            </button>
-            <button className="rounded-full h-14 px-8 border-2 border-primary/20 bg-transparent text-slate-200 text-base font-bold hover:bg-primary/5 transition-colors min-w-[180px]">
-              View Gallery
             </button>
           </div>
         </div>

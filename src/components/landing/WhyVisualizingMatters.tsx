@@ -26,7 +26,7 @@ const WhyVisualizingMatters = () => {
 
   return (
     <section className="py-20 px-4 md:px-12" ref={ref}>
-      <div className={`max-w-7xl mx-auto rounded-[2rem] p-10 md:p-20 text-white relative overflow-hidden transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      <div className={`max-w-[1380px] mx-auto rounded-[2rem] p-10 md:p-20 text-white relative overflow-hidden transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
         {/* Glow effects */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-[100px] opacity-10 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary rounded-full blur-[100px] opacity-10 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -47,9 +47,10 @@ const WhyVisualizingMatters = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center lg:items-end">
-            <p className="text-6xl font-black text-primary mb-2">50k+</p>
-            <p className="text-xl text-slate-400">Smiles Transformed</p>
+          <div className="flex flex-col items-center lg:items-end justify-center">
+            <p className="text-5xl font-black text-primary mb-1">1,200+</p>
+            <p className="text-lg text-slate-400">Scans Completed</p>
+            <p className="text-sm text-slate-500 mt-1">and growing every week</p>
           </div>
         </div>
 
