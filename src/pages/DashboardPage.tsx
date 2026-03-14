@@ -7,6 +7,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { getDashboardStats, loadScans } from "@/lib/scanStorage";
 import { mockProgressData } from "@/data/mockData";
+import ScoreGauge from "@/components/ScoreGauge";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
