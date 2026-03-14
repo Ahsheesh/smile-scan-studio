@@ -460,47 +460,12 @@ const DashboardPage = () => {
               )}
             </div>
 
-            {/* Share */}
+            {/* Copy link button */}
             {hasData && (
-              <div className="bg-card-dark rounded-2xl p-5 border border-white/5">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="material-symbols-outlined text-primary">share</span>
-                  <span className="text-sm font-black uppercase text-ivory">SHARE YOUR SMILE</span>
-                </div>
-                <div className="bg-background-dark rounded-xl p-5 border border-white/10 flex flex-col items-center gap-3">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-sm">flare</span>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Dental Vision AI</span>
-                  </div>
-                  <span className="text-4xl font-black text-ivory">{latestScore}</span>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Smile Health Score</span>
-                  <div className="flex gap-4 text-[10px] text-slate-500">
-                    <span>Alignment {dashData!.latest.scores.alignment}%</span>
-                    <span>Symmetry {dashData!.latest.scores.symmetry}%</span>
-                  </div>
-                  <span className="text-[8px] text-slate-600 mt-1">dentalvision.ai</span>
-                </div>
-                <div className="flex flex-col gap-2 mt-4">
-                  <button onClick={handleCopyLink} className="flex items-center gap-2 w-full px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-slate-300 hover:border-primary hover:text-primary transition-colors">
-                    <span className="material-symbols-outlined text-sm">link</span>
-                    {copied ? "Copied!" : "Copy Public Link"}
-                  </button>
-                  <button
-                    onClick={() => window.open(`https://wa.me/?text=Check out my Dental Vision score: ${latestScore}/100! https://dentalvision.ai/share/${dashData!.latest.id}`, "_blank")}
-                    className="flex items-center gap-2 w-full px-4 py-2 bg-[#25D366]/10 border border-[#25D366]/20 rounded-xl text-xs font-bold text-[#25D366] hover:bg-[#25D366]/20 transition-colors"
-                  >
-                    <span className="text-sm font-black">W</span>
-                    Share on WhatsApp
-                  </button>
-                  <button
-                    onClick={() => window.open(`https://twitter.com/intent/tweet?text=Just+got+my+Dental+Vision+AI+smile+score:+${latestScore}/100!+✨&url=https://dentalvision.ai/share/${dashData!.latest.id}`, "_blank")}
-                    className="flex items-center gap-2 w-full px-4 py-2 bg-sky-500/10 border border-sky-500/20 rounded-xl text-xs font-bold text-sky-400 hover:bg-sky-500/20 transition-colors"
-                  >
-                    <span className="text-sm font-black">𝕏</span>
-                    Share on X
-                  </button>
-                </div>
-              </div>
+              <button onClick={handleCopyLink} className="flex items-center gap-2 w-full px-4 py-2.5 bg-card-dark border border-white/5 rounded-xl text-xs font-bold text-slate-300 hover:border-primary hover:text-primary transition-colors">
+                <span className="material-symbols-outlined text-sm">link</span>
+                {copied ? "Copied!" : "Copy Public Link"}
+              </button>
             )}
           </div>
         </div>
