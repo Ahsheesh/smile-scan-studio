@@ -8,6 +8,7 @@ import DoctorModal from "@/components/DoctorModal";
 import { useAuth } from "@/contexts/AuthContext";
 import { loadScans, type ScanResult } from "@/lib/scanStorage";
 import { mockScores, mockJaw, mockRecommendation } from "@/data/mockData";
+import perfectSmile from "@/assets/perfect-smile-placeholder.jpg";
 
 const simulationTabs = ["Braces Overlay", "Whitening", "Jaw Alignment"];
 
