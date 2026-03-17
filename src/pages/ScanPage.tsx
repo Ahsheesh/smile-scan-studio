@@ -301,7 +301,6 @@ const ScanPage = () => {
                   id={`photo-input-${currentStep}`}
                   type="file"
                   accept="image/jpg,image/jpeg,image/png,image/heic"
-                  capture="user"
                   className="hidden"
                   onChange={(e) => {
                     const file = e.target.files?.[0];
