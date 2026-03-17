@@ -11,6 +11,9 @@ import {
   type ScanImage,
   type ScanResult,
 } from "@/lib/scanStorage";
+import refFront from "@/assets/ref-front.jpg";
+import refRight from "@/assets/ref-right.jpg";
+import refLeft from "@/assets/ref-left.jpg";
 
 const steps = [
   {
