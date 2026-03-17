@@ -8,6 +8,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { getDashboardStats, loadScans } from "@/lib/scanStorage";
 import { mockProgressData } from "@/data/mockData";
 import ScoreGauge from "@/components/ScoreGauge";
+import perfectSmile from "@/assets/perfect-smile-placeholder.jpg";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
