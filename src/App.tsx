@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -22,6 +23,27 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+=======
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import ScanPage from "./pages/ScanPage";
+import AnalysisPage from "./pages/AnalysisPage";
+import SharePage from "./pages/SharePage";
+
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/scan" element={<ScanPage />} />
+      <Route path="/analysis/:id" element={<AnalysisPage />} />
+      <Route path="/share/:id" element={<SharePage />} />
+    </Routes>
+  </BrowserRouter>
+>>>>>>> repoB/master
 );
 
 export default App;

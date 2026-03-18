@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
+=======
+>>>>>>> repoB/master
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+<<<<<<< HEAD
   :root {
     --background: 210 25% 98%;
     --foreground: 215 30% 12%;
@@ -110,5 +114,70 @@
   }
   .glow-md {
     box-shadow: 0 0 40px hsl(var(--glow) / 0.2);
+=======
+  :root, .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 115 22% 68%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 115 22% 68%;
+    --radius: 0.5rem;
+
+    --bg-dark: #0d1117;
+    --card-bg: #161b22;
+    --text-ivory: #f8f5e6;
+  }
+
+  .light {
+    --background: 40 33% 96%;
+    --foreground: 222.2 47.4% 11.2%;
+    --card: 40 20% 94%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --popover: 40 20% 94%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --primary: 115 22% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 10% 88%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 40 10% 88%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 40 10% 88%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 10% 82%;
+    --input: 40 10% 82%;
+    --ring: 115 22% 48%;
+
+    --bg-dark: #f5f2e8;
+    --card-bg: #efe9da;
+    --text-ivory: #1a1a2e;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    background-color: var(--bg-dark);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+>>>>>>> repoB/master
   }
 }
